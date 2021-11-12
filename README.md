@@ -3,20 +3,28 @@
 CZĘŚĆ OBOWIĄZKOWA
 
 3.
-a. Do zbudowania opracowanego obrazu używamy polecenia: docker build . -t projekt_app
-b. Do uruchomienia kontenera na podstaiwe obrazu używamy: docker run -p 5000:8080 -d --name projekt_container projekt_app
-c. W celu uzyskania informacji które wygenerował serwer należy użyć: docker logs projekt_container
-d. Do sprawdzenia liczby warstw zbudowanego obrazu należy użyć: docker history projekt_app
+a. Do zbudowania opracowanego obrazu używamy polecenia: 
+docker build . -t projekt_app
+b. Do uruchomienia kontenera na podstaiwe obrazu używamy: 
+docker run -p 5000:8080 -d --name projekt_container projekt_app
+c. W celu uzyskania informacji które wygenerował serwer należy użyć: 
+docker logs projekt_container
+d. Do sprawdzenia liczby warstw zbudowanego obrazu należy użyć: 
+docker history projekt_app
 
 4.
-Do zbudowania obrazu z bezpośredniego linku GitHub używamy: docker build https://github.com/mpgis/Projekt_1_docker.git
-W celu przeniesienia obrazu na swoje konto DockerHub należy użyć: docker tag (NazwaObrazu):(NazwaTagu) (NazwaRepozytorium):(NazwaTagu) 
-                                                                i docker push (NazwaRepozytorium):(NazwaTagu) 
+Do zbudowania obrazu z bezpośredniego linku GitHub używamy: 
+docker build https://github.com/mpgis/Projekt_1_docker.git
+W celu przeniesienia obrazu na swoje konto DockerHub należy użyć: 
+ docker tag (NazwaObrazu):(NazwaTagu) (NazwaRepozytorium):(NazwaTagu) 
+ i docker push (NazwaRepozytorium):(NazwaTagu) 
                                                                 
 CZĘŚĆ DODATKOWA
 
 1. 
-a. W celu uruchomienia konterera z registry należy użyć polecenia: docker run -d -p 6677:6677 --restart=always --name registry registry:2
+a. W celu uruchomienia konterera z registry należy użyć polecenia: 
+docker run -d -p 6677:6677 --restart=always --name registry registry:2
+
 b. Do pobrania najnowszej wersji ubuntu używamy: docker pull ubuntu
    Do zmiany nazwy obrazu należy użyć: docker tag ubuntu localhost:6677/local-ubuntu
    W celu wgrania obrazu do utworzonego rejestru należy wykorzystać polecenie: docker push localhost:6677/local-ubuntu
